@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "EpiLog",
+  "version": "1.0",
+  "description": "A chrome extention that allows you to track the series you watch online.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "32": "icon32.png"
+    }
+  },
+  "permissions": []
+}
