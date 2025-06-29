@@ -37,6 +37,17 @@ body {
   transition-duration: 0.4s;
 }
 
-.add:hover {
+.hover:hover {
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.24), 0 8px 8px 0 rgba(0, 0, 0, 0.19);
+}
+
+.icon-button {
+  background-color: transparent;
+  border: transparent;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  height: 32px;
+  width: 32px;
+  font-size: 16px;
+  text-align: center;
 }

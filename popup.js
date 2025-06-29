@@ -1,30 +1,45 @@
-document.querySelector(".add").addEventListener("click", () => {
-  const list = document.getElementById("series-list");
+document.getElementById("add").addEventListener("click", () => {
+  const list = document.getElementById("series-list"); // Get the list from HTML
 
-  const row = document.createElement("div");
+  const row = document.createElement("div"); // Create a Row child
   row.className = "container";
 
-  const nameCol = document.createElement("div");
+  const nameCol = document.createElement("div"); // Create the series name column
   nameCol.className = "column";
-  nameCol.style.flex = "3";
-  // Input the series name
-  const nameInput = document.createElement("input");
-  nameInput.type = "text";
-  nameInput.placeholder = "Series name";
-  nameInput.className = "input-field";
-  nameCol.appendChild(nameInput);
+  nameCol.style.flex = "5";
 
-  const linkCol = document.createElement("div");
+  const linkCol = document.createElement("div"); // Create the series link column
   linkCol.className = "column";
   linkCol.style.flex = "1";
-  // Input the series link
-  const linkInput = document.createElement("input");
-  const iconButton = document.createElement("button");
-  iconButton.textContent = "↗️";
-  iconButton.className = "icon-button";
-  linkCol.appendChild(iconButton);
+
+  const input = document.createElement("input"); // Create the actual input for series name
+  input.type = "text";
+  input.placeholder = "Series Name";
+  //   input.className = "input-field";
+  nameCol.appendChild(input);
+
+  input.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      const text = document.createElement("div");
+      text.textContent = input.value;
+      input.replaceWith(text);
+
+      const link = document.createElement("button");
+      link.textContent = "↗️";
+
+      const savedURL = window.location.href;
+
+      link.addEventListener("click", () => {
+        window.open(savedURL, "_blank");
+      });
+
+      linkCol.appendChild(link);
+    }
+  });
 
   row.appendChild(nameCol);
   row.appendChild(linkCol);
   list.appendChild(row);
+
+  input.focus();
 });
